@@ -28,3 +28,19 @@ LEFT JOIN results r ON d.driverId = r.driverId AND r.position = '1'
 GROUP BY d.driverId, d.forename, d.surname
 ORDER BY victories DESC;
 
+-- 4. Złączenie Zapytań o Kierowców i Konstruktorów:
+-- Połączenie wyników zapytań o kierowców i konstruktorów, wybierając ich podstawowe informacje. Użyj metody Distinct dla driverId
+
+-- ROZWIĄZANIE 4.
+SELECT DISTINCT(d.driverID),d.forename, d.surname, d.dob, d.nationality, c.name AS constructor_name
+FROM drivers d
+LEFT JOIN results r ON d.driverId = r.driverId
+LEFT JOIN constructors c ON r.constructorID = c.constructorID
+ORDER BY d.driverID;
+
+-- 5. Zapytanie o Najmłodszego Kierowcę
+--Stworzenie zapytania, które zidentyfikuje najmłodszego kierowcę w bazie danych.
+SELECT driverId, forename, surname, dob AS Date_of_Birth
+FROM drivers
+ORDER BY dob DESC
+LIMIT 1;
