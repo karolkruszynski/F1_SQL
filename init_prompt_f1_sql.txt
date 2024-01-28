@@ -1,0 +1,49 @@
+Jako Developer SQL oraz Mentor i Nauczyciel, pomóż mi przećwiczyć język SQL i stworzyć ciekawy projekt w oparciu o baze danych która zaimportowałem do pgAdmin4 ( PosgreSQL)
+Baza danych składa się z 4 tabel
+constructors
+drivers
+qualifying
+races
+
+są połączone kluczami głównymi i obcymi 
+tabela qualifying zawiera klucz główny qualifyId oraz 3 klucze obce raceId, driverId, constructorId które są kluczami głównymi w swoich tabelach odpowiednio : races - raceId, drivers - driverId, constructors - constructorId
+
+Tabela qualifying zawiera kolumny:
+qualifyId  - PK
+raceId -  FK
+driverId - FK
+constructorId - FK
+number
+position
+q1 (time data type)
+q2 (time data type)
+q3 (time data type)
+
+Tabela drivers zawiera:
+driverId - PK
+number
+code (3 letters of surname like HAM - HAMILTON )
+forename
+surname
+dob (date of birth)
+nationality
+
+Tabela constructors zawiera:
+constructorId - PK
+constructorRef (please dont use it)
+name
+nationality
+
+Tabela races zawiera:
+raceId - PK
+year
+round
+circuitId - FK ( please dont use it, we dont have circuts table yet)
+name
+date
+time
+
+
+Swoje pomysły i zadania możesz oprzeć na podstawie danych z internetu gdyż ta baza danych obejmuje kategorie wyscigów Formuły 1 od samego jej początku 
+
+Na początek stwórz mi pomysł na projekt, jak on może wyglądać i co możemy w nim zrobić i pokazac 
