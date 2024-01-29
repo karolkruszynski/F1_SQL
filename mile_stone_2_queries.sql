@@ -44,16 +44,26 @@ GROUP BY d.driverId, d.forename, d.surname
 ORDER BY total_points DESC
 LIMIT 5;
 
+-- 4. Zapytanie o Średnią Liczbę Punktów na Wyścig:
+-- Stworzenie zapytania obliczającego średnią liczbę punktów zdobytych przez kierowcę na wyścig.
 
+-- ROZWIĄZANIE 4.
+SELECT d.driverId, d.forename, d.surname, AVG(r.points) AS avg_points_per_race
+FROM drivers d
+LEFT JOIN results r ON d.driverId = r.driverId
+WHERE r.raceId IN (SELECT raceId FROM races WHERE year = 2016)  -- Zmień rok na aktualny
+GROUP BY d.driverId, d.forename, d.surname
+ORDER BY avg_points_per_race DESC;
 
+-- 5. Zapytanie o Najlepszą Średnią Czasu Kwalifikacji:
+-- Stworzenie zapytania, które wybierze kierowców z najlepszą średnią czasów kwalifikacji Q1, Q2 ,Q3.
 
-
-
-
-
-
-
-
+-- ROZWIĄZANIE 5.
+SELECT d.driverId, d.forename, d.surname, AVG(q.q1) AS q1_avg_time, AVG(q.q2) AS q2_avg_time, AVG(q.q3) AS q3_avg_time
+FROM drivers d
+LEFT JOIN qualifying q ON d.driverId = q.driverId
+GROUP BY d.driverId, d.forename, d.surname
+ORDER BY q1_avg_time ASC;
 
 
 
